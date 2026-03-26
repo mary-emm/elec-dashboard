@@ -78,13 +78,25 @@ h4 {
 
 .parliament {
   width: 2rem;
-  height: 2rem;
+  height: 1rem;
   border-radius: 20%;
   background: gray;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 10px;
+}
+
+.parliament {
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.parliament:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
 }
 
 .state {
@@ -100,4 +112,10 @@ h4 {
   align-items: flex-end; /* important */
   justify-content: center; /* optional: center whole chart */
   margin-top: 2rem;
+}
+
+footer {
+  font-size: 0.5rem;
+  margin-top: 2rem;
+  margin-left: 2rem;
 }

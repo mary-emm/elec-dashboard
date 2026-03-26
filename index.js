@@ -33,10 +33,10 @@ function groupByState(data) {
 function getColor(party) {
   if (party === "PN" || party === "GS") return "#588157";
   if (party === "BN") return "#4f7d8e";
-  if (party === "PH") return "#c94c4c";
+  if (party === "PH" || party === "PR") return "#c94c4c";
   return "#b5b2b2";
 }
-
+// test
 // render chart
 function render(data) {
   const chart = document.getElementById("chart");
@@ -55,14 +55,20 @@ function render(data) {
       // apply color here
       block.style.background = getColor(p.WINNING_PARTY_MAIN);
 
+      block.onclick = () => {
+        console.log("clicked:", p);
+
+        showDetail(p); // we’ll create this next
+      };
+
       stateDiv.appendChild(block);
     });
 
-    // const label = document.createElement("div");
-    // label.className = "state-label";
-    // label.textContent = state;
+    const label = document.createElement("div");
+    label.className = "state-label";
+    label.textContent = state;
 
-    // stateDiv.appendChild(label);
+    stateDiv.appendChild(label);
     chart.appendChild(stateDiv);
   });
 }

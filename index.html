@@ -4,17 +4,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script defer src="/_vercel/insights/script.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css"
-    />
-    <title>Vercel HTML Starter</title>
+    <link rel="stylesheet" href="index.css" />
+    <script defer src="index.js"></script>
+
+    <title>Elec Dashboard</title>
     <meta
       name="description"
-      content="High-performance HTML based website template."
+      content="Website to display Malaysia election data"
     />
   </head>
   <body>
-    test
+    <div id="app">
+      <div class="controls">
+        <div class="slidecontainer">
+          <input
+            type="range"
+            min="0"
+            max="12"
+            value="12"
+            class="slider"
+            id="myRange"
+          />
+        </div>
+        <h4 id="selectedYear" class="selectedYear"></h4>
+      </div>
+
+      <div id="chart"></div>
+    </div>
   </body>
 </html>

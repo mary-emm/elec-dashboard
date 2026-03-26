@@ -36,7 +36,7 @@ function getColor(party) {
   if (party === "PH" || party === "PR") return "#c94c4c";
   return "#b5b2b2";
 }
-// test
+// tested
 // render chart
 function render(data) {
   const chart = document.getElementById("chart");

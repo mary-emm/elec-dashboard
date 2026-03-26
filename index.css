@@ -119,3 +119,26 @@ footer {
   margin-top: 2rem;
   margin-left: 2rem;
 }
+
+#legend {
+  position: fixed;
+  right: 20px;
+  top: 100px;
+  background: white;
+  padding: 10px;
+  border: 1px solid #ccc;
+  font-size: 12px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  color: black;
+}
+
+.legend-color {
+  width: 12px;
+  height: 12px;
+  margin-right: 6px;
+}

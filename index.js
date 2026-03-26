@@ -31,9 +31,17 @@ function groupByState(data) {
 
 // color mapping
 function getColor(party) {
-  if (party === "PN" || party === "GS") return "#588157";
+  if (party === "PN" || party === "GS" || party === "PAS") return "#588157";
   if (party === "BN") return "#4f7d8e";
-  if (party === "PH" || party === "PR") return "#c94c4c";
+  if (party === "PH" || party === "PR" || party === "PKR") return "#c94c4c";
+  if (party === "MUDA") return "#b5b2b2";
+  if (party === "INDEPENDENT" || party === "DAP") return "#FFEE91";
+  if (party === "KDM") return "#FDC3A1";
+  if (party === "WARISAN") return "#D989B5";
+  if (party === "GRS") return "#863A6F";
+  if (party === "GPS") return "#DEF5E5";
+  if (party === "PBM") return "#FFC18E";
+
   return "#b5b2b2";
 }
 // tested
@@ -73,6 +81,39 @@ function render(data) {
   });
 }
 
+function getParties(data) {
+  const set = new Set();
+
+  data.forEach((d) => {
+    set.add(d.WINNING_PARTY_MAIN);
+  });
+
+  return Array.from(set);
+}
+
+function renderLegend(data) {
+  const legend = document.getElementById("legend");
+  legend.innerHTML = "";
+
+  const parties = getParties(data);
+
+  parties.forEach((party) => {
+    const row = document.createElement("div");
+    row.className = "legend-item";
+
+    const colorBox = document.createElement("div");
+    colorBox.className = "legend-color";
+    colorBox.style.background = getColor(party);
+
+    const label = document.createElement("span");
+    label.textContent = party;
+
+    row.appendChild(colorBox);
+    row.appendChild(label);
+    legend.appendChild(row);
+  });
+}
+
 // slider update
 slider.oninput = async function () {
   const year = geYear[this.value];
@@ -80,6 +121,7 @@ slider.oninput = async function () {
 
   const data = await loadData(year);
   render(data);
+  renderLegend(data);
 };
 
 // initial load (important)

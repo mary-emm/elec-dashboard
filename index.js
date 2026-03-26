@@ -33,16 +33,15 @@ function groupByState(data) {
 function getColor(party) {
   if (party === "PN" || party === "GS" || party === "PAS") return "#588157";
   if (party === "BN") return "#4f7d8e";
-  if (party === "PH" || party === "PR" || party === "PKR") return "#c94c4c";
+  if (party === "PH" || party === "PR" || party === "PKR" || party === "BA")
+    return "#c94c4c";
   if (party === "MUDA") return "#b5b2b2";
-  if (party === "INDEPENDENT" || party === "DAP") return "#FFEE91";
+  if (party === "INDEPENDENT") return "#FFEE91";
   if (party === "KDM") return "#FDC3A1";
-  if (party === "WARISAN") return "#D989B5";
-  if (party === "GRS") return "#863A6F";
+  if (party === "WARISAN" || party === "DAP") return "#D989B5";
+  if (party === "GRS" || party === "GSABAH") return "#863A6F";
   if (party === "GPS") return "#DEF5E5";
   if (party === "PBM") return "#FFC18E";
-
-  return "#b5b2b2";
 }
 // tested
 // render chart

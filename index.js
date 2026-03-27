@@ -31,17 +31,19 @@ function groupByState(data) {
 
 // color mapping
 function getColor(party) {
-  if (party === "PN" || party === "GS" || party === "PAS") return "#588157";
+  if (party === "PN" || party === "GS" || party === "PAS" || party === "APU")
+    return "#588157";
   if (party === "BN") return "#4f7d8e";
   if (party === "PH" || party === "PR" || party === "PKR" || party === "BA")
     return "#c94c4c";
   if (party === "MUDA") return "#b5b2b2";
   if (party === "INDEPENDENT") return "#FFEE91";
-  if (party === "KDM") return "#FDC3A1";
+  if (party === "KDM" || party === "GR") return "#8ff0cc";
   if (party === "WARISAN" || party === "DAP") return "#D989B5";
-  if (party === "GRS" || party === "GSABAH") return "#863A6F";
-  if (party === "GPS") return "#DEF5E5";
-  if (party === "PBM") return "#FFC18E";
+  if (party === "PBS" || party === "GRS" || party === "GSABAH")
+    return "#863A6F";
+  if (party === "GPS" || party === "SAPO") return "#DEF5E5";
+  if (party === "PBM" || party === "S46") return "#FFC18E";
 }
 // tested
 // render chart
@@ -128,4 +130,5 @@ slider.oninput = async function () {
   const year = geYear[slider.value];
   const data = await loadData(year);
   render(data);
+  renderLegend(data);
 })();
